@@ -9,8 +9,9 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div id="login-area">
+    <div id="login-area" class="container">
         <h1 class="text-center">Welcome to Butterfly Bank</h1>
         <div class="submit-area">
             <h4>Login</h4>
@@ -19,26 +20,27 @@
             <input type="password" id="password" class="form-control" placeholder="Password"><br>
             <div class="form-group form-check">
                 <input type="checkbox" id="showPassword" class="form-check-input">
-                <label class="form-check-label" for="exampleCheck1">Show passward</label>
+                <label class="form-check-label" for="showPassword">Show password</label>
             </div>
-            <button id="login" class="btn btn-primary">Submit</button>
+            <button id="login" class="btn btn-primary btn-block">Submit</button>
         </div>
     </div>
-    <div id="transaction-area">
+
+    <div id="transaction-area" class="container">
         <div class="row">
-            <div class="col-md-4 ">
+            <div class="col-lg-4 col-md-4 col-sm-12 mb-3">
                 <div class="Deposit status">
                     <h2>Deposit</h2>
                     <h5>$<span id="currentDeposit">00</span></h5>
                 </div>
             </div>
-            <div class="col-md-4 ">
+            <div class="col-lg-4 col-md-4 col-sm-12 mb-3">
                 <div class="Withdraw status">
                     <h2>Withdraw</h2>
                     <h5>$<span id="currentWithdraw">00</span></h5>
                 </div>
             </div>
-            <div class="col-md-4 ">
+            <div class="col-lg-4 col-md-4 col-sm-12 mb-3">
                 <div class="Balance status">
                     <h2>Balance</h2>
                     <h5>$<span id="currentBalance">1240</span></h5>
@@ -46,75 +48,26 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="submit-area">
                     <h4>Deposit</h4>
                     <input id="depositAmount" type="text" class="form-control"
                         placeholder="$ amount you want to Deposit">
                     <br>
-                    <button id="addDeposit" class="btn btn-success">Deposit</button>
+                    <button id="addDeposit" class="btn btn-success btn-block">Deposit</button>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="submit-area">
                     <h4>Withdraw</h4>
-                    <input id="withdrawAmount" type="text" class="form-control" placeholder="$ amount you want to Withdraw">
+                    <input id="withdrawAmount" type="text" class="form-control"
+                        placeholder="$ amount you want to Withdraw">
                     <br>
-                    <button id ="addWithdraw"class="btn btn-success">Withdraw</button>
+                    <button id="addWithdraw" class="btn btn-success btn-block">Withdraw</button>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        //login button event handler
-        const loginBtn = document.getElementById("login");
-        loginBtn.addEventListener("click", function () {
-            const loginArea = document.getElementById("login-area");
-            loginArea.style.display = "none";
-            const transactionArea = document.getElementById("transaction-area");
-            transactionArea.style.display = "block";
-        })
-        // show passward
-        document.getElementById('showPassword').onclick = function () {
-            if (this.checked) {
-                document.getElementById('password').type = "text";
-            } else {
-                document.getElementById('password').type = "password";
-            }
-        }
-        //deposit button event handler
-        const depositBtn = document.getElementById("addDeposit");
-        depositBtn.addEventListener("click", function () {
-            const depositAmount = document.getElementById("depositAmount").value;
-            const depositNumber = parseFloat(depositAmount);            
-            updateSpanText("currentDeposit",depositNumber);
-            updateSpanText("currentBalance",depositNumber);
-            document.getElementById("depositAmount").value = "";
-        })
-        //withdraw button event handler
-        const withdrawBtn = document.getElementById("addWithdraw");
-        withdrawBtn.addEventListener("click",function(){
-         const withdrawNumber =getInputNumber("withdrawAmount");
-         
-         updateSpanText("currentWithdraw", withdrawNumber);
-         updateSpanText("currentBalance", -1*withdrawNumber);
-         document.getElementById("withdrawAmount").value = "";
-        })
-
-        function getInputNumber(id){
-        const amount = document.getElementById(id).value
-        const amountNumber = parseFloat(amount);
-        return amountNumber;
-        }
-
-        function updateSpanText(id,addedNumber){
-            const current = document.getElementById(id).innerText;
-            const currentNumber = parseFloat(current);
-            const totalAmount = addedNumber + currentNumber;
-            document.getElementById(id).innerText=totalAmount;
-
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
-
 </html>

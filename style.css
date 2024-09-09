@@ -1,31 +1,44 @@
-  body {
-      padding: 100px;
-    }
-    .submit-area {
-      margin-top: 50px;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 5px 5px 13px gray;
-    }
-    #transaction-area {
-      display: none;
-    }
+body {
+    padding: 50px;
+}
+.submit-area {
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px gray;
+}
+#transaction-area {
+    display: none;
+}
 input[type=password],
 input[type=text] {
-  display: block;
+    display: block;
 }
-.status{
-  margin: 0 20px;
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
+.status {
+    margin: 20px 0;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
 }
-.Deposit{
-background-color:steelblue;
+.Deposit {
+    background-color: steelblue;
 }
-.Withdraw{
-background-color: lightsalmon;
+.Withdraw {
+    background-color: lightsalmon;
 }
-.Balance{
-background-color: orange;
+.Balance {
+    background-color: orange;
+}
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+    .submit-area {
+        padding: 20px;
+        margin-top: 20px;
+    }
+    .status {
+        padding: 15px;
+    }
 }
